@@ -1,7 +1,9 @@
 import { Model, InferAttributes, InferCreationAttributes, CreationOptional, DataTypes } from 'sequelize';
 import { IUserModel } from '../../types';
 
-
+/**
+  * Class that represents a User as a sequelize model
+  */
 export class UserModel extends Model<InferAttributes<UserModel>, InferCreationAttributes<UserModel>> implements IUserModel {
   declare id: CreationOptional<number>;
   declare login: string;
@@ -11,6 +13,9 @@ export class UserModel extends Model<InferAttributes<UserModel>, InferCreationAt
   declare img?: string | undefined;
 }
 
+/**
+  * Object that represents a User as a database table
+  */
 export const userFields = {
   id: {
     type: DataTypes.INTEGER.UNSIGNED,

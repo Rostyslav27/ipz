@@ -1,15 +1,20 @@
 import { Model, InferAttributes, InferCreationAttributes, CreationOptional, DataTypes } from 'sequelize';
-import { ICardModel, IColumnModel } from '../../types';
+import { ICardModel } from '../../types';
 
-
+/**
+  * Class that represents a Card as a sequelize model
+  */
 export class CardModel extends Model<InferAttributes<CardModel>, InferCreationAttributes<CardModel>> implements ICardModel {
   declare id: CreationOptional<number>;
-  declare columnId: IColumnModel;
+  declare columnId: number;
   declare order?: number | undefined;
   declare title?: string | undefined;
   declare description?: string | undefined;
 }
 
+/**
+  * Object that represents a Card as a database table
+  */
 export const cardFields = {
   id: {
     type: DataTypes.INTEGER.UNSIGNED,

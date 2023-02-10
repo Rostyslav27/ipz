@@ -1,13 +1,18 @@
 import { Model, InferAttributes, InferCreationAttributes, CreationOptional, DataTypes } from 'sequelize';
-import { IBoardModel, IUserModel } from '../../types';
+import { IBoardModel } from '../../types';
 
-
+/**
+  * Class that represents a Board as a sequelize model
+  */
 export class BoardModel extends Model<InferAttributes<BoardModel>, InferCreationAttributes<BoardModel>> implements IBoardModel {
   declare id: CreationOptional<number>;
-  declare userId: IUserModel;
+  declare userId: number;
   declare title?: string | undefined;
 }
 
+/**
+  * Object that represents a Board as a database table
+  */
 export const boardFields = {
   id: {
     type: DataTypes.INTEGER.UNSIGNED,
